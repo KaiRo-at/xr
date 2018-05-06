@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Clickable A-Frame</title>
+    <meta name="description" content="Clickable Example - A-Frame">
+    <script src="https://aframe.io/aframe/dist/aframe-master.min.js"></script>
+    <script src="https://unpkg.com/aframe-animation-component/dist/aframe-animation-component.min.js"></script>
+    <script src="triggers.js"></script>
+  </head>
+  <body>
+    <a-scene background="color: #ECECEC" cursor="rayOrigin: mouse;">
+      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" shadow
+        animation="property: rotation; to: 0 135 0; startEvents: click; dur: 2000;"></a-box>
+      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E" shadow></a-sphere>
+      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D" shadow
+        animation="property: position; dir: alternate; startEvents: click; dur: 1000; loop: 2; to: 1.5 0.75 -3"></a-cylinder>
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4" shadow></a-plane>
+    </a-scene>
+    <!-- a-scene cursor="rayOrigin: mouse;">
+      <a-sphere position="0 1.25 -1" radius="1.25" color="#EF2D5E"></a-sphere>
+      <a-cube position="-1 0.5 1" rotation="0 0 0" width="1" height="1" depth="1" color="#4CC3D9"
+        animation="property: rotation; to: 0 90 0; startEvents: click; dur: 2000;">
+      </a-cube>
+      <a-cylinder position="1 0.75 1" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+      <a-plane rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+      <a-sky color="#ECECEC"></a-sky>
+      <a-camera position="0 0 0">
+    </a-scene -->
+  </body>
+</html>
