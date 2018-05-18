@@ -1,1 +1,1 @@
-RedirectMatch permanent ^/(.*)$ https://vrmap.kairo.at/$1
+RedirectMatch permanent ^/map/(.*)$ https://vrmap.kairo.at/$1
