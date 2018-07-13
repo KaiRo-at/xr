@@ -1,0 +1,3 @@
+Similar to Phaser Shooting Range:
+http://www.ex-astris-scientia.org/gallery/factfiles/phaser-shooting-range.jpg
+Probably avoid ST properties for now though.

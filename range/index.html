@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ray Blaster Range</title>
+    <meta name="description" content="Ray Blaster Range - A-Frame">
+    <script src="https://aframe.io/aframe/dist/aframe-master.min.js"></script>
+    <script src="main.js"></script>
+    <script src="target.js"></script>
+  </head>
+  <body>
+    <a-scene background="color: #000000">
+      <a-sky class="target" color="#DDAA40" material="wireframe: true;"></a-sky>
+      <a-assets>
+        <a-asset-item id="rayblaster" src="phaser1.dae"></a-asset-item>
+      </a-assets>
+      <a-circle color="#CCCC40" radius="1" rotation="-90 0 0" position="0 0 0"></a-circle>
+      <a-sphere class="target" color="#8080CC" material="wireframe: true;" radius="0.1" position="0 3 -1" target></a-sphere>
+
+      <a-entity id="cameraRig" position="0 0 0">
+        <!-- camera -->
+        <a-entity id="head" camera="active: true" position="0 1.6 0"></a-entity>
+        <!-- hand controls -->
+        <a-mixin id="shootingray" raycaster="objects: .target; showLine: true; enabled: false;" line="color: #FF6600;" visible="false"></a-mixin>
+        <a-entity id="left-hand"
+                  oculus-touch-controls="hand: left; model: false;" vive-controls="hand: left; model: false;" windows-motion-controls="hand: left; model: false;">
+          <a-entity class="ray" rotation="-70 0 0" mixin="shootingray"></a-entity>
+          <a-cylinder radius="0.02" height="0.15" color="#CCCCCC" rotation="-160 0 0" position="0 0.02 0"></a-cylinder>
+          <a-cylinder radius="0.01" height="0.10" color="#404040" rotation="-90 0 0" position="0 0 0.05"></a-cylinder>
+        </a-entity>
+        <a-entity id="right-hand"
+                  oculus-touch-controls="hand: right; model: false;" vive-controls="hand: right; model: false;" windows-motion-controls="hand: right; model: false;">
+          <a-entity class="ray" rotation="-70 0 0" mixin="shootingray"></a-entity>
+          <a-entity collada-model="#rayblaster" scale="0.001 0.001 0.001" position="0.04 -0.1 0.1" rotation="-20 180 90"></a-entity>
+        </a-entity>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
