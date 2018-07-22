@@ -13,15 +13,21 @@
       <a-sky class="target" color="#DDAA40" material="wireframe: true;"></a-sky>
       <a-assets>
         <a-asset-item id="rayblaster" src="phaser1.dae"></a-asset-item>
+        <audio id="targethum" src="knova_hum.opus"></audio>
+        <a-asset-item id="targethit" src="unicornaphobist_glasstap.opus" response-type="arraybuffer"></a-asset-item>
+        <!-- audio id="targethit" src="unicornaphobist_glasstap.opus"></audio |see https://github.com/aframevr/aframe/issues/2754| -->
+        <audio id="rayshot" src="zimbot_sonicdeathray.opus"></audio>
       </a-assets>
       <a-circle color="#CCCC40" radius="1" rotation="-90 0 0" position="0 0 0"></a-circle>
-      <a-sphere class="target" color="#8080CC" material="wireframe: true;" radius="0.1" position="0 3 -1" target></a-sphere>
+      <a-sphere class="target" color="#8080CC" material="wireframe: true;" radius="0.1" position="0 3 -1" target sound="src: #targethit;">
+        <a-entity sound="src: #targethum; volume: 0.6; autoplay: true; loop: true; rolloffFactor: 5;"></a-entity>
+      </a-sphere>
 
       <a-entity id="cameraRig" position="0 0 0">
         <!-- camera -->
         <a-entity id="head" camera="active: true" position="0 1.6 0"></a-entity>
         <!-- hand controls -->
-        <a-mixin id="shootingray" raycaster="objects: .target; showLine: true; enabled: false;" line="color: #FF6600;" visible="false"></a-mixin>
+        <a-mixin id="shootingray" raycaster="objects: .target; showLine: true; enabled: false;" line="color: #FF6600;" visible="false" sound="src: #rayshot; loop: true;"></a-mixin>
         <a-entity id="left-hand"
                   oculus-touch-controls="hand: left; model: false;" vive-controls="hand: left; model: false;" windows-motion-controls="hand: left; model: false;">
           <a-entity class="ray" rotation="-70 0 0" mixin="shootingray"></a-entity>

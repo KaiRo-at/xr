@@ -18,6 +18,7 @@ AFRAME.registerComponent('target', {
     var self = this;
     this.el.addEventListener('hit', event => {
       this.el.setAttribute("color", "#CC8080");
+      this.el.components.sound.playSound();
     });
     this.el.addEventListener('hit-cleared', event => {
       this.el.setAttribute("color", "#8080CC");

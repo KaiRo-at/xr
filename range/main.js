@@ -22,6 +22,7 @@ function startShooting(event) {
   rayElement.setAttribute("raycaster", {enabled: true});
   // doesn't really work
   //rayElement.object3D.children[0].material.linewidth = 5;
+  rayElement.components.sound.playSound();
 }
 
 function stopShooting(event) {
@@ -32,6 +33,7 @@ function stopShooting(event) {
   for (target of rayElement.components.raycaster.intersectedEls) {
     target.emit("hit-cleared", {el: rayElement}, false);
   }
+  rayElement.components.sound.stopSound();
 }
 
 function targetHit(event) {
