@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title>Ray Blaster Range</title>
     <meta name="description" content="Ray Blaster Range - A-Frame">
-    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
-    <!-- script src="https://aframe.io/aframe/dist/aframe-master.min.js"></script -->
+    <!-- script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script -->
+    <script src="https://aframe.io/aframe/dist/aframe-master.min.js"></script>
     <script src="https://unpkg.com/aframe-html-shader/dist/aframe-html-shader.min.js"></script>
     <script src="main.js"></script>
     <script src="beam.js"></script>
@@ -13,9 +13,9 @@
   </head>
   <body>
     <a-scene background="color: #000000">
-      <a-sky class="target" color="#DDAA40" material="wireframe: true;"></a-sky>
+      <a-sky color="#DDAA40" material="wireframe: true;"></a-sky>
       <a-assets>
-        <a-asset-item id="rayblaster" src="phaser1.dae"></a-asset-item>
+        <a-asset-item id="rayblaster" src="phaser1.glb"></a-asset-item>
         <audio id="rayshot" src="zimbot_sonicdeathray.opus"></audio>
         <audio id="rayshot-left" src="zimbot_sonicdeathray.opus" loop preload="auto"></audio>
         <audio id="rayshot-right" src="zimbot_sonicdeathray.opus" loop preload="auto"></audio>
@@ -55,7 +55,7 @@
                   oculus-touch-controls="hand: right; model: false;" vive-controls="hand: right; model: false;" windows-motion-controls="hand: right; model: false;"
                   daydream-controls="hand: right; model: false;" gearvr-controls="hand: right; model: false;">
           <a-entity class="ray" rotation="-70 0 0" mixin="shootingray" beam="hand: right; batterystatus: #battery-right;"></a-entity>
-          <a-entity collada-model="#rayblaster" scale="0.001 0.001 0.001" position="0.04 -0.1 0.1" rotation="-20 180 90"></a-entity>
+          <a-entity gltf-model="#rayblaster" scale="0.001 0.001 0.001" position="0.04 -0.1 0.1" rotation="-20 180 90"></a-entity>
         </a-entity>
       </a-entity>
     </a-scene>
