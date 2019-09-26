@@ -10,39 +10,48 @@
   <body>
     <a-scene background="color: #000000">
       <a-assets>
+        <a-asset-item id="saturnmodel" response-type="arraybuffer" src="Saturn_1_120536.glb"></a-asset-item>
       </a-assets>
 
+      <!-- Light sources: ambient, sun -->
       <a-entity light="type: ambient; color: #BBB; intensity: .1;"></a-entity>
-      <a-entity position="0 1.5 0">
-        <a-entity position="0 0 0" rotation="0 -270 0"
-                  animation="property: rotation; to: 0 90 0; loop: true; dur: 10000;">
-          <a-entity id="ship" rotation="0 90 0" position="0 1 -4"
-                    animation="property: position; to: 0 -1 -8; loop: true; dur: 10000; dir: alternate;">
-            <a-cylinder position="0 0 0" radius=".4" height="0.04" color="#CCC0DD"></a-cylinder>
-            <a-cylinder rotation="90 0 0" position="0.2 0.05 .9" radius=".03" height=".8" color="#CCC0DD"></a-cylinder>
-            <a-cylinder rotation="90 0 0" position="-0.2 0.05 .9" radius=".03" height=".8" color="#CCC0DD"></a-cylinder>
-            <a-cylinder rotation="90 0 0" position="0 -0.2 .65" radius=".08" height="0.75" color="#CCC0DD"></a-cylinder>
-            <a-box rotation="0 0 -30" position="0.12 -0.1 .75" depth=".12" height=".3" width="0.02" color="#CCC0DD"></a-box>
-            <a-box rotation="0 0 30" position="-0.12 -0.1 .75" depth=".12" height=".3" width="0.02" color="#CCC0DD"></a-box>
-            <a-box rotation="-45 0 0" position="0 -0.1 .4" depth=".15" height=".25" width="0.04" color="#CCC0DD"></a-box>
-            <a-box rotation="-45 0 0" position="0 -0.02 .264" depth=".07" height=".055" width="0.04" color="#CCC0DD"></a-box>
-          </a-entity>
-        </a-entity>
-        <a-sphere position="0 0 0" radius="1" color="#FFFF00" material="emissive: #FFFF00;" light="type: point; intensity: 1; distance: 50; decay: 2"></a-sphere>
-        <a-entity position="0 0 0" rotation="0 -120 0"
-                  animation="property: rotation; to: 0 240 0; loop: true; dur: 600000; easing: linear;">
-          <a-sphere position="0 0 7" radius=".2" color="#8080FF"></a-sphere>
-        </a-entity>
-        <a-entity position="0 0 0" rotation="0 -200 0"
-                  animation="property: rotation; to: 0 160 0; loop: true; dur: 720000; easing: linear;">
-          <a-sphere position="0 0 5" radius=".4" src="earth_equirect.jpg" rotation="0 0 0"
+      <a-sphere id="sun" position="0 0 0" radius="1" color="#FFFF00"
+                material="emissive: #FFFF00;" light="type: point; intensity: 1; distance: 50; decay: 2"></a-sphere>
+
+      <!-- Planets: color-only, texture image, 3D model; with rotation entities -->
+      <a-entity id="redplanet" position="0 0 0" rotation="0 -120 0"
+                animation="property: rotation; to: 0 240 0; loop: true; dur: 600000; easing: linear;">
+        <a-sphere position="0 0 3" radius=".2" color="#FF8080"></a-sphere>
+      </a-entity>
+      <a-entity position="0 0 0" rotation="0 -200 0"
+                animation="property: rotation; to: 0 160 0; loop: true; dur: 720000; easing: linear;">
+        <a-entity position="0 0 5" rotation="23.5 0 0">
+          <a-sphere id="earth" src="earth_equirect.jpg" position="0 0 0" radius=".4" rotation="0 0 0"
                     animation="property: rotation; to: 0 360 0; loop: true; dur: 24000; easing: linear;"></a-sphere>
         </a-entity>
-        <a-entity position="0 0 0" rotation="0 0 0"
-                  animation="property: rotation; to: 0 360 0; loop: true; dur: 1000000; easing: linear;">
-          <a-sphere position="0 0 7" radius=".3" color="#FF8080"></a-sphere>
+      </a-entity>
+      <a-entity position="0 0 0" rotation="0 0 0"
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 1000000; easing: linear;">
+        <a-sphere id="saturn" gltf-model="#saturnmodel" scale="0.003 0.003 0.003" position="0 0 20" rotation="26.7 0 0" radius=".7" color="#A08080"></a-sphere>
+      </a-entity>
+
+      <!-- Space ship: emulating a legend with basic shapes ;-) -->
+      <a-entity position="0 -1 2" rotation="0 -270 0"
+                animation="property: rotation; to: 0 90 0; loop: true; dur: 10000;">
+        <a-entity id="ship" rotation="0 90 0" position="0 1 -4"
+                  animation="property: position; to: 0 -1 -8; loop: true; dur: 10000; dir: alternate;">
+          <a-cylinder position="0 0 0" radius=".4" height="0.04" color="#CCC0DD"></a-cylinder>
+          <a-cylinder rotation="90 0 0" position="0.2 0.05 .9" radius=".03" height=".8" color="#CCC0DD"></a-cylinder>
+          <a-cylinder rotation="90 0 0" position="-0.2 0.05 .9" radius=".03" height=".8" color="#CCC0DD"></a-cylinder>
+          <a-cylinder rotation="90 0 0" position="0 -0.2 .65" radius=".08" height="0.75" color="#CCC0DD"></a-cylinder>
+          <a-box rotation="0 0 -30" position="0.12 -0.1 .75" depth=".12" height=".3" width="0.02" color="#CCC0DD"></a-box>
+          <a-box rotation="0 0 30" position="-0.12 -0.1 .75" depth=".12" height=".3" width="0.02" color="#CCC0DD"></a-box>
+          <a-box rotation="-45 0 0" position="0 -0.1 .4" depth=".15" height=".25" width="0.04" color="#CCC0DD"></a-box>
+          <a-box rotation="-45 0 0" position="0 -0.02 .264" depth=".07" height=".055" width="0.04" color="#CCC0DD"></a-box>
         </a-entity>
       </a-entity>
+
+      <!-- Camera rig for "fly" movement and head+hand placement -->
       <a-entity id="cameraRig" position="0 1 1" movement-controls="speed: .1; fly: true; camera: #head;">
         <!-- camera -->
         <a-entity id="head" camera="active: true" look-controls position="0 1.6 0"></a-entity>
