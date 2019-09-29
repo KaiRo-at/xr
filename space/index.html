@@ -25,14 +25,16 @@
       </a-entity>
       <a-entity position="0 0 0" rotation="0 -200 0"
                 animation="property: rotation; to: 0 160 0; loop: true; dur: 720000; easing: linear;">
-        <a-entity position="0 0 5" rotation="23.5 0 0">
+        <a-entity position="0 0 5" rotation="23.5 0 0"
+                  animation="property: rotation; to: 23.5 -360 0; loop: true; dur: 720000; easing: linear;">
           <a-sphere id="earth" src="earth_equirect.jpg" position="0 0 0" radius=".4" rotation="0 0 0"
                     animation="property: rotation; to: 0 360 0; loop: true; dur: 24000; easing: linear;"></a-sphere>
         </a-entity>
       </a-entity>
       <a-entity position="0 0 0" rotation="0 0 0"
                 animation="property: rotation; to: 0 360 0; loop: true; dur: 1000000; easing: linear;">
-        <a-sphere id="saturn" gltf-model="#saturnmodel" scale="0.003 0.003 0.003" position="0 0 20" rotation="26.7 0 0" radius=".7" color="#A08080"></a-sphere>
+        <a-sphere id="saturn" gltf-model="#saturnmodel" scale="0.003 0.003 0.003" position="0 0 20" rotation="26.7 0 0" radius=".7" color="#A08080"
+                  animation="property: rotation; to: 26.7 -360 0; loop: true; dur: 1000000; easing: linear;"></a-sphere>
       </a-entity>
 
       <!-- Space ship: emulating a legend with basic shapes ;-) -->
